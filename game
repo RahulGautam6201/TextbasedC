@@ -1,0 +1,115 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void displayIntroduction() {
+    printf("Welcome to the Haunted House Adventure!\n");
+     char arg[100];
+     printf("What is your name?\n");
+     scanf("%c", &arg[0]);
+    printf("You find yourself standing in front of an old, creepy house.\n");
+    printf("The door creaks as it swings open slightly in the wind.\n");
+    printf("Are you brave enough to enter?\n\n");
+}
+
+void exploreHouse() {
+    printf("\nYou step into the dark foyer of the house.\n");
+    printf("There are three doors in front of you: one on the left, one on the right, and one straight ahead.\n");
+}
+
+void leftRoom() {
+    printf("\nYou enter the room on the left.\n");
+    printf("It's a dusty old library filled with cobwebs.\n");
+    printf("You spot a key on the desk.\n");
+    printf("Do you want to pick it up? (yes/no): ");
+    char choice[10];
+    scanf("%s", choice);
+    if (strcmp(choice, "yes") == 0 || strcmp(choice, "Yes") == 0){
+    printf("You pick up the key and continue exploring.\n");
+    } else if (strcmp(choice, "no") == 0 || strcmp(choice, "No") == 0){
+      printf("You leave the key and the place also\n");
+    }
+}
+
+void rightRoom() {
+    printf("\nYou enter the room on the right.\n");
+    printf("It's a spooky dining room with a long, eerie table.\n");
+    printf("You hear strange noises coming from the kitchen.\n");
+    printf("Suddenly, a ghostly apparition appears in front of you!\n");
+    printf("You need to run or fight!\n");
+    printf("What will you do? (run/fight): ");
+    char choice[10];
+    scanf("%s", choice);
+    if (strcmp(choice, "run") == 0 || strcmp(choice, "Run") == 0) {
+        printf("\nYou manage to escape the dining room and return to the foyer.\n");
+    } else if (strcmp(choice, "fight") == 0 || strcmp(choice, "Fight") == 0) {
+        printf("\nYou attempt to fight the ghost, but your attacks pass through it.\n");
+        printf("The ghost laughs menacingly and disappears, leaving you shaken.\n");
+    } else {
+        printf("\nInvalid choice! The adventure ends here...\n");
+        return;
+    }
+}
+
+void straightRoom() {
+    printf("\nYou enter the room straight ahead.\n");
+    printf("It's a dimly lit bedroom with tattered curtains.\n");
+    printf("There's a strange feeling in the air, like someone is watching you.\n");
+}
+
+void treasureRoom() {
+    printf("\nYou find a hidden room with an old chest inside.\n");
+    printf("You use the key you found to unlock the chest.\n");
+    printf("Inside the chest, you find a map leading to a treasure buried underwater.\n");
+}
+
+void underwaterTreasure() {
+    printf("\nYou follow the map and find yourself at the edge of a murky pond.\n");
+    printf("You take a deep breath and dive into the water.\n");
+    printf("After searching for a while, you encounter a dangerous underwater creature!\n");
+    printf("You narrowly escape and continue searching.\n");
+    printf("Eventually, you find an underwater castle.\n");
+    printf("Inside, you encounter aquatic creatures that resemble humans but can survive underwater effortlessly.\n");
+}
+void key(){
+  printf("\nThe key you found on the desk is a key to a secret locker.\n");
+  printf("\nYou unlock the locker and find a mysterious old book which is a Harry Potter book \n");
+}
+
+
+int main() {
+    char choice[10];
+
+    displayIntroduction();
+
+    printf("Do you dare to enter the house? (yes/no): ");
+    scanf("%s", choice);
+
+    if (strcmp(choice, "yes") == 0 || strcmp(choice, "Yes") == 0) {
+        exploreHouse();
+
+        printf("Which door do you want to enter? (left/right/straight): ");
+        scanf("%s", choice);
+
+        if (strcmp(choice, "left") == 0 || strcmp(choice, "Left") == 0) {
+            leftRoom();
+            key();
+            
+        } else if (strcmp(choice, "right") == 0 || strcmp(choice, "Right") == 0) {
+            rightRoom();
+          
+        } else if (strcmp(choice, "straight") == 0 || strcmp(choice, "Straight") == 0) {
+            straightRoom();
+            treasureRoom();
+            underwaterTreasure();
+        } else {
+            printf("Invalid choice! The adventure ends here...\n");
+        }
+    } else {
+        printf("You decide to stay outside. The adventure ends here...\n");
+    }
+
+    printf("\nThank you for playing!\n");
+
+    return 0;
+}
